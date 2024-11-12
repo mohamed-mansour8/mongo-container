@@ -23,9 +23,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: docker pull mongo:${{ github.event.inputs.image_version }}
+        run: docker pull mongo:${{ github.event.inputs.image_version || 'latest' }}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          docker tag mongo:${{ github.event.inputs.image_version }} mongo:company
+          docker tag mongo:${{ github.event.inputs.image_version || 'latest' }} mongo:company
